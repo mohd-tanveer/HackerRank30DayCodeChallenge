@@ -1,0 +1,12 @@
+di = {}
+for i in range(int(input())):
+    keys,value=input().split(' ')
+    di[keys]=int(value)
+while(True):
+    try:
+        x=input()
+        if x in di.keys():
+            print('{0}={1}'.format(x,di.get(x,0)))
+        else:
+            print('Not found')
+    except: break
