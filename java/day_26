@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        String[]  returnedDateInput = sc.nextLine().split(" ");
+        String[] dueDateInput = sc.nextLine().split(" ");
+        Integer returnedYear = Integer.parseInt(returnedDateInput[2]);
+        Integer returnedMonth = Integer.parseInt(returnedDateInput[1]);
+        Integer returnedDate = Integer.parseInt(returnedDateInput[0]);
+
+        Integer dueYear = Integer.parseInt(dueDateInput[2]);
+        Integer dueMonth = Integer.parseInt(dueDateInput[1]);
+        Integer dueDate = Integer.parseInt(dueDateInput[0]);
+        Integer fineToBePaid;
+
+        if(returnedYear-dueYear>0) {
+            fineToBePaid=10000;
+        }else if(returnedYear-dueYear<0){
+            fineToBePaid=0; //handle case like 9 9 2014  6 6 2015  https://www.hackerrank.com/challenges/30-nested-logic/forum/comments/134091
+        }else if(returnedMonth-dueMonth>0){
+            fineToBePaid = 500*(returnedMonth-dueMonth);
+        }else if(returnedDate-dueDate>0){
+            fineToBePaid = 15*(returnedDate-dueDate);
+        }else{
+            fineToBePaid=0;
+        }
+        System.out.println(fineToBePaid);
+    }
+}
