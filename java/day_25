@@ -1,0 +1,32 @@
+import org.w3c.dom.ls.LSOutput;
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int testCases = Integer.parseInt(br.readLine());
+        while(testCases-- > 0){
+            int number = Integer.parseInt(br.readLine());
+            if (CheckIsPrime(number)) {
+                System.out.println("Prime");
+            } else {
+                System.out.println("Not prime");
+            }
+        }
+    }
+    public static boolean CheckIsPrime(int n){
+        boolean flag = true;
+        if(n==1)return false;
+        if(n==2) return true;
+        for(int i=2; i<=Math.sqrt(n);i++){
+            if(n%i==0){
+                flag=false;
+            }
+        }
+        return flag;
+    }
+}
